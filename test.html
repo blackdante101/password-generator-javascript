@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<title>Password Generator</title>
+
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+		<style>
+			*{
+				font-family:montserrat;
+			}
+		</style>
+
+	</head>
+	<body>
+		<div style="width:600px;margin-left:30%;margin-top:7%;background-color:#9b59b6;" class="container p-5 rounded">
+			<h3 class="text-white">Password Generator</h3>
+			<hr class="mt-3 mb-5">
+			<div class="row ml-1">
+			<input style="width:450px" placeholder="Password" type="text" name="pwd" id="pwd">
+			<button onclick="copy();" style='background-color:#8e44ad;'  class="btn text-white"><i class="fa fa-clipboard"></i></button>	
+			</div>
+			<small id="copiedtxt" style="display:none;" class="text-center mt-2 text-white">Password Has Been Copied!</small>
+			
+			<button onclick="generate();" style='background-color:#8e44ad;width:500px'  class="btn mt-3 text-white">Generate &nbsp;&nbsp;&nbsp;<i class="fa fa-gear"></i></button>
+			
+		</div>
+		
+<script>
+	var pwd = document.getElementById('pwd');
+	var copiedtxt = document.getElementById('copiedtxt');
+
+	var pass="";
+
+	function generate(){
+		if (pwd.value === "")
+		{
+        for (i=1;i<4;i++) {
+			pass += Math.random().toString(36).substr(2, 10);
+		}
+		//location.reload();
+		pwd.value=pass;
+		}
+		else{
+			location.reload();
+		}
+
+	
+	}
+	function copy(){
+		pwd.select();
+		//pwd.setSelectionRange(0, 9999);
+		copiedtxt.style.display="block";
+		document.execCommand('copy');
+		setTimeout(function(){copiedtxt.style.display="none";}, 1000);
+		
+
+	}
+</script>
+	</body>
+</html>
