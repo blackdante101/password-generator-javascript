@@ -37,17 +37,10 @@
 	var pass="";
 
 	function generate(){
-		if (pwd.value === "")
-		{
-        for (i=1;i<4;i++) {
-			pass += Math.random().toString(36).substr(2, 10);
-		}
+		var firstpass = Math.random().toString(36).substr(2, 10);
+		    var fullpass = firstpass + Math.random().toString(36).substr(2, 10);
 		//location.reload();
-		pwd.value=pass;
-		}
-		else{
-			location.reload();
-		}
+		pwd.value=fullpass;
 
 	
 	}
